@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عبد الغفور - الصفحة الشخصية</title>
-    <!-- Bootstrap CSS -->
+    <title>نموذج طلب إجازة</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -14,17 +13,8 @@
             padding: 0;
             color: #333;
         }
-        header {
-            background-color: #28a745; /* أخضر */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
         .container {
-            margin-top: 30px;
-        }
-        .highlight {
-            color: #dc3545; /* أحمر */
+            margin-top: 50px;
         }
         footer {
             text-align: center;
@@ -35,49 +25,70 @@
             width: 100%;
             bottom: 0;
         }
-        a {
-            color: #dc3545; /* أحمر */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>عبد الغفور</h1>
-        <p>منسق موارد بشرية</p>
-    </header>
-    <main class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <section class="card mb-4">
-                    <div class="card-body">
-                        <h2 class="card-title">نبذة عني</h2>
-                        <p class="card-text">مرحبًا! اسمي عبد الغفور وأنا منسق موارد بشرية. أهتم بالموارد البشرية والشؤون الإدارية، بالإضافة إلى علوم الكيمياء والتدريس.</p>
-                    </div>
-                </section>
-                <section class="card mb-4">
-                    <div class="card-body">
-                        <h2 class="card-title">اهتماماتي</h2>
-                        <ul class="list-unstyled">
-                            <li class="highlight">الموارد البشرية</li>
-                            <li>الشؤون الإدارية</li>
-                            <li class="highlight">علوم الكيمياء</li>
-                            <li>التدريس</li>
-                        </ul>
-                    </div>
-                </section>
+    <div class="container">
+        <h1 class="text-center">نموذج طلب إجازة</h1>
+        <form id="leave-form">
+            <div class="form-group">
+                <label for="employeeName">اسم الموظف</label>
+                <input type="text" class="form-control" id="employeeName" name="employeeName" required>
             </div>
-        </div>
-    </main>
+            <div class="form-group">
+                <label for="employeeEmail">البريد الإلكتروني للموظف</label>
+                <input type="email" class="form-control" id="employeeEmail" name="employeeEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="managerEmail">البريد الإلكتروني للمدير</label>
+                <input type="email" class="form-control" id="managerEmail" name="managerEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate">تاريخ بدء الإجازة</label>
+                <input type="date" class="form-control" id="startDate" name="startDate" required>
+            </div>
+            <div class="form-group">
+                <label for="endDate">تاريخ انتهاء الإجازة</label>
+                <input type="date" class="form-control" id="endDate" name="endDate" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">سبب الإجازة</label>
+                <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">إرسال الطلب</button>
+        </form>
+    </div>
     <footer>
-        <p>تابعني على مواقع التواصل الاجتماعي: <a href="#">رابط 1</a>, <a href="#">رابط 2</a></p>
+        <p>© 2024 عبد الغفور</p>
     </footer>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_USER_ID");
+        })();
+        
+        document.getElementById('leave-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const serviceID = 'YOUR_SERVICE_ID';
+            const templateID = 'YOUR_TEMPLATE_ID';
+
+            const templateParams = {
+                employeeName: document.getElementById('employeeName').value,
+                employeeEmail: document.getElementById('employeeEmail').value,
+                managerEmail: document.getElementById('managerEmail').value,
+                startDate: document.getElementById('startDate').value,
+                endDate: document.getElementById('endDate').value,
+                reason: document.getElementById('reason').value
+            };
+
+            emailjs.send(serviceID, templateID, templateParams)
+                .then(function(response) {
+                    alert('تم إرسال طلب الإجازة بنجاح!', response.status, response.text);
+                }, function(error) {
+                    alert('فشل في إرسال طلب الإجازة...', error);
+                });
+        });
+    </script>
 </body>
 </html>
