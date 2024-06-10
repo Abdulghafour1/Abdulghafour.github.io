@@ -26,10 +26,16 @@
             bottom: 0;
             z-index: 999;
         }
+        .logo {
+    width: 150px; /* تحديد عرض الشعار */
+    display: block; /* جعل الصورة تظهر كمركز مستقل */
+    margin: 0 auto 20px; /* تحديد هوامش الشعار (مسافة من الأعلى والأسفل، والتوسيط أفقياً) */
+        }
     </style>
 </head>
 <body>
     <div class="container">
+    <img src=""C:\Users\abdul\OneDrive\Desktop\leave request\SR Logo.jpg"" alt="SR Logo" class="logo"> <!-- هنا يتم إضافة الشعار -->
         <h1 class="text-center">نموذج طلب إجازة</h1>
         <form id="leave-form">
             <div class="form-group">
@@ -39,6 +45,10 @@
             <div class="form-group">
                 <label for="employeeEmail">البريد الإلكتروني للموظف</label>
                 <input type="email" class="form-control" id="employeeEmail" name="employeeEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="managerName">اسم المدير</label>
+                <input type="text" class="form-control" id="managerName" name="managerName" required>
             </div>
             <div class="form-group">
                 <label for="managerEmail">البريد الإلكتروني للمدير</label>
