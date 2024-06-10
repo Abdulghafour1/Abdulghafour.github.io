@@ -59,19 +59,19 @@
         </form>
     </div>
     <footer>
-        <p>© 2024 عبد الغفور</p>
+        <p>© Abdulghafour 2024 </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("YOUR_USER_ID");
+            emailjs.init("yDVEKSMfjzmO1anyT"); // استخدم معرف المستخدم العام هنا
         })();
         
         document.getElementById('leave-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const serviceID = 'YOUR_SERVICE_ID';
-            const templateID = 'YOUR_TEMPLATE_ID';
+            const serviceID = 'service_j27vrxk'; // استخدم معرف الخدمة هنا
+            const templateID = 'template_4yw71pt'; // استخدم معرف القالب هنا
 
             const templateParams = {
                 employeeName: document.getElementById('employeeName').value,
