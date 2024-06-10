@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عبد الغفور - الصفحة الشخصية</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
@@ -15,25 +17,18 @@
         header {
             background-color: #28a745; /* أخضر */
             color: white;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
         }
-        main {
-            margin: 20px;
-        }
-        section {
-            background-color: #ffffff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .container {
+            margin-top: 30px;
         }
         .highlight {
             color: #dc3545; /* أحمر */
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 10px 0;
             background-color: #28a745;
             color: white;
             position: fixed;
@@ -54,23 +49,35 @@
         <h1>عبد الغفور</h1>
         <p>منسق موارد بشرية</p>
     </header>
-    <main>
-        <section>
-            <h2>نبذة عني</h2>
-            <p>مرحبًا! اسمي عبد الغفور وأنا منسق موارد بشرية. أهتم بالموارد البشرية والشؤون الإدارية، بالإضافة إلى علوم الكيمياء والتدريس.</p>
-        </section>
-        <section>
-            <h2>اهتماماتي</h2>
-            <ul>
-                <li>الموارد البشرية</li>
-                <li>الشؤون الإدارية</li>
-                <li>علوم الكيمياء</li>
-                <li>التدريس</li>
-            </ul>
-        </section>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <section class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">نبذة عني</h2>
+                        <p class="card-text">مرحبًا! اسمي عبد الغفور وأنا منسق موارد بشرية. أهتم بالموارد البشرية والشؤون الإدارية، بالإضافة إلى علوم الكيمياء والتدريس.</p>
+                    </div>
+                </section>
+                <section class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">اهتماماتي</h2>
+                        <ul class="list-unstyled">
+                            <li class="highlight">الموارد البشرية</li>
+                            <li>الشؤون الإدارية</li>
+                            <li class="highlight">علوم الكيمياء</li>
+                            <li>التدريس</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
     <footer>
         <p>تابعني على مواقع التواصل الاجتماعي: <a href="#">رابط 1</a>, <a href="#">رابط 2</a></p>
     </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
